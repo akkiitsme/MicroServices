@@ -1,0 +1,35 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: RATING-SERVICE
+  datasource:
+    url: jdbc:mysql://localhost:3306/microservice_three?useSSL=false&serverTimezone=UTC
+    username : root
+    password : 123456
+    #driver-class-name: com.mysql.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto : update
+    show-sql : true
+
+    properties:
+      hibernate:
+        format_sql: true
+
+eureka:
+  instance:
+    hostname: localhost
+    preferred-ip-address : true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      default-time-zone: http://localhost:8761/eureka
+
+okta:
+  oauth2:
+    issuer: https://dev-86441457.okta.com/oauth2/default
+    audience: api://default
